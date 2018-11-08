@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fin färg</title>
+  </head>
+  <body>
+    <script src="https://koda.nu/simple.js">
+      fill ("green")
+      rectangle(5, 5, totalWidth-10, totalHeight-10, "black");
+     let baseSpeed = 5;
+     var player = {x: 100, y: 100, size: 5, xSpeed: baseSpeed, ySpeed: 0};
+
+     function update ()
+     {
+      baseSpeed += 0.03;
+      rectangle(player.x, player.y, player.size, player.size, "red");
+
+      player.x += player.xSpeed;
+      player.y += player.ySpeed;
+      if (keyboard.w)
+      {
+        player.ySpeed = -baseSpeed;
+        player.xSpeed = 0;
+      }
+      if (keyboard.s)
+      {
+        player.ySpeed = baseSpeed;
+        player.xSpeed = 0;
+      }
+      if (keyboard.a)
+      {
+        player.ySpeed = 0;
+        player.xSpeed = -baseSpeed;
+      }
+      if (keyboard.d)
+      {
+        player.ySpeed = 0;
+        player.xSpeed = baseSpeed;
+      }
+      if (getPixel(player.x, player.y).green || getPixel(player.x, player.y).red ) {
+        stopUpdate(); 
+      }
+     }
+     // || = eller, minst ena sann
+     // && = och
+     // xor = antingen eller
+     // ! = inte
+     // == samma värde, men kan vara olika typer (typkonvertering sker)
+     // === samma värde och samma typ
+
+    </script>
+  </body>
+</html>
